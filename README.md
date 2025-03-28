@@ -2,7 +2,6 @@
 
 A modern, responsive web application for buying and selling game points, items, and digital goods. Built with vanilla JavaScript and designed for optimal user experience.
 
-
 ## Technologies Used
 
 - HTML5
@@ -12,34 +11,19 @@ A modern, responsive web application for buying and selling game points, items, 
 - FontAwesome Icons
 
 ## Getting Started
-gitHub : 
-Live Demo
+
+gitHub : https://github.com/dopagraming/Hyper-Teknoloji-Gorevi
+Live Demo : https://hyper-teknoloji-gorevi.vercel.app/
 
 ## Project Structure
 
 ```
-├── css/
-│   └── style.css        # Main stylesheet
-├── js/
-│   └── script.js        # Main JavaScript file
+├── style.css        # Main stylesheet
+├── script.js        # Main JavaScript file
 ├── images/             # Image assets
 ├── index.html         # Main HTML file
 └── README.md         # Project documentation
 ```
-
-## Features in Detail
-
-### Pagination
-
-- Dynamic page generation
-- Group-based navigation
-- Responsive controls
-
-### User Interface
-
-- Modern design
-- Responsive layout
-- Animated transitions
 
 ## API Integration
 
@@ -59,7 +43,6 @@ The application is fully responsive with breakpoints at:
 - Desktop: 992px
 - Large Desktop: 1200px
 - Extra Large: 1400px
-
 
 ## Contact
 
