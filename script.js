@@ -38,76 +38,80 @@ const displayProducts = (data, page = 1) => {
     const start = (page - 1) * itemsPerPage;
     const end = start + itemsPerPage;
     const productsToShow = data.data.slice(start, end);
-
-    productsToShow.forEach(product => {
-      let ratingHTML = "";
-      for (let i = 0; i < 5 || product.rating; i++) {
-        ratingHTML += `<i class="fa-solid fa-star"></i>`;
-      }
-      const productElement = document.createElement('div');
-      productElement.className = 'product-card';
-      productElement.innerHTML = `
-        <div class="product-image">
-          <img src=${product?.productData.productMainImage} alt="Product-Image" loading="lazy">
-          <div class="product-icons">
-            <button class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
-            <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
-            <button class="share-btn"><i class="fa-solid fa-share-nodes"></i></button>
-          </div>
-        </div>
-        <div class="product-details">
-          <h2 class="product-name">${product.productName.substring(0, 45)}...</h2>
-          <div class="product-price">
-            <span class="current-price">${product.salePrice}$</span>
-          </div>
-          <p class="product-description">${product?.productData.productInfo.substring(0, 70)}...<a class="view-more" href="#">daha</a></p>
-          <div class="product-rating">${ratingHTML} <span class="rating-score">(${product.sorting})</span></div>
-        </div>
-      `;
-      productsContainer.appendChild(productElement);
-    });
-
     let pageGroupEnd = Math.min(pageGroupStart + 4, totalPages);
 
+    productsToShow.forEach(product => {
+      createProductCart(product, productsContainer)
+    });
+
     if (pageGroupStart > 1) {
-      const prevButton = document.createElement('button');
-      prevButton.innerHTML = '<i class="fa-regular fa-circle-left"></i>';
-      prevButton.className = 'prev-btn';
-      prevButton.addEventListener('click', () => {
+      createBtn('prev-btn', '<i class="fa-regular fa-circle-left"></i>', () => {
         pageGroupStart = Math.max(1, pageGroupStart - 5);
         displayProducts(data, pageGroupStart);
-      });
-      paginationContainer.appendChild(prevButton);
+      }, paginationContainer);
     }
 
     for (let i = pageGroupStart; i <= pageGroupEnd; i++) {
-      const pageButton = document.createElement('button');
-      pageButton.textContent = i;
-      pageButton.className = `pagination-btn ${i === page ? 'active' : ''}`;
-      pageButton.addEventListener('click', () => {
+      createBtn(`pagination-btn ${i === currentPage ? 'active' : ''}`, i, () => {
         currentPage = i;
         displayProducts(data, currentPage);
-      });
-      paginationContainer.appendChild(pageButton);
+      }, paginationContainer);
     }
 
     if (pageGroupEnd < totalPages) {
-      const nextButton = document.createElement('button');
-      nextButton.className = "next-btn"
-      nextButton.innerHTML = '<i class="fa-regular fa-circle-right"></i>';
-      nextButton.addEventListener('click', () => {
+      createBtn('next-btn', '<i class="fa-regular fa-circle-right"></i>', () => {
         pageGroupStart = Math.min(totalPages - 4, pageGroupStart + 5);
         displayProducts(data, pageGroupStart);
-      });
-      paginationContainer.appendChild(nextButton);
+      }, paginationContainer);
     }
   } else {
-    productsContainer.innerHTML = `
+    let content = `
       <div class="no-result">
         <h2>Oops, no results</h2>
       </div>
-    `;
+    `
+    noResultComponent(content, productsContainer)
   }
 };
 
+const createProductCart = (product, parent) => {
+  parent
+  let ratingHTML = "";
+  for (let i = 0; i < 5 || product.rating; i++) {
+    ratingHTML += `<i class="fa-solid fa-star"></i>`;
+  }
+  const productElement = document.createElement('div');
+  productElement.className = 'product-card';
+  productElement.innerHTML = `
+    <div class="product-image">
+      <img src=${product?.productData.productMainImage} alt="Product-Image" loading="lazy">
+      <div class="product-icons">
+        <button class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+        <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+        <button class="share-btn"><i class="fa-solid fa-share-nodes"></i></button>
+      </div>
+    </div>
+    <div class="product-details">
+      <h2 class="product-name">${product.productName.substring(0, 45)}...</h2>
+      <div class="product-price">
+        <span class="current-price">${product.salePrice}$</span>
+      </div>
+      <p class="product-description">${product?.productData.productInfo.substring(0, 70)}...<a class="view-more" href="#">daha</a></p>
+      <div class="product-rating">${ratingHTML} <span class="rating-score">(${product.sorting})</span></div>
+    </div>
+  `;
+  parent.appendChild(productElement);
+}
+
+const createBtn = (className, content, onClick, parent) => {
+  const btn = document.createElement('button');
+  btn.className = className;
+  btn.innerHTML = content;
+  if (onClick) btn.addEventListener('click', onClick);
+  parent.appendChild(btn);
+};
+
+const noResultComponent = (content, parent) => {
+  parent.innerHTML = content;
+}
 fetchData();
