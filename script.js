@@ -1,10 +1,7 @@
-const cartBtn = document.getElementById('cart-btn');
-const cartSidebar = document.querySelector('#cart-sidebar');
-const closeIcon = document.querySelector('.close-icon');
-let noProduct = document.querySelector('.no-product');
-let goToCartBtn = document.querySelector('#go-to-cart-btn');
-let numberOfProducts = document.querySelector('.number-of-products');
-
+let headerBars = document.querySelector('.bars');
+let rightSide = document.querySelector('.right-side');
+let close = document.querySelector(".close")
+let goToTop = document.getElementById("go-to-top")
 const itemsPerPage = 10;
 let currentPage = 1;
 let totalPages = 1;
@@ -114,4 +111,32 @@ const createBtn = (className, content, onClick, parent) => {
 const noResultComponent = (content, parent) => {
   parent.innerHTML = content;
 }
+
+headerBars.addEventListener("click", () => {
+  rightSide.classList.toggle("active")
+})
+
+close.addEventListener("click", () => {
+  rightSide.classList.toggle("active")
+})
+const handleToggle = (e) => {
+  classList.toggle("active")
+}
+
 fetchData();
+
+
+// Go To Top Function
+
+window.onscroll = function () { scrollFunction() };
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    goToTop.style.display = "block";
+  } else {
+    goToTop.style.display = "none";
+  }
+}
+goToTop.addEventListener("click", () => {
+  document.documentElement.scrollTop = 0;
+}) 

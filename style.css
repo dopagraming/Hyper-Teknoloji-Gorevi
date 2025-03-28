@@ -40,7 +40,7 @@ header {
   color: white;
 }
 .nav-top-bar {
-  margin: 0.6rem auto;
+  padding: 0.6rem 0 !important;
 }
 @media (max-width: 992px) {
   .nav-top-bar {
@@ -83,6 +83,7 @@ header .header-main {
 }
 header .header-main i {
   margin-right: 1.6rem;
+  cursor: pointer;
 }
 header .header-main .header-logo img {
   margin-right: 1rem;
@@ -159,6 +160,40 @@ header .search-box i {
   background: linear-gradient(90deg, #ff7e5f, #feb47b);
   background-size: 200% 200%;
   animation: gradientAnimation 4s infinite alternate;
+}
+header .right-side {
+  display: none;
+}
+header .right-side.active {
+  display: block;
+  position: fixed;
+  left: 0;
+  max-width: 250px;
+  height: 100%;
+  background-color: #171a21;
+  top: 0;
+  padding: 1.5rem 1rem;
+  box-shadow: red;
+  line-height: 1.6;
+}
+header .right-side i {
+  position: absolute;
+  right: 10px;
+  top: 0.7rem;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+header .right-side li {
+  border-bottom: 1px solid #383838;
+  padding: 0.5rem 0;
+  transition: 0.3s;
+}
+
+header .right-side li:hover {
+  transform: translateX(10px);
+}
+header .right-side li a {
+  color: white;
 }
 /* End Header */
 /* Start Overlay */
@@ -419,6 +454,25 @@ header .search-box i {
   }
 }
 /* End Footer */
+.go-to-top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #171a21;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.go-to-top:hover {
+  background-color: #555;
+}
 /* Media Queres */
 @media (min-width: 120px) {
   .container {
