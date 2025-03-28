@@ -469,7 +469,26 @@ header .right-side li a {
   border-radius: 10px;
   font-size: 18px;
 }
-
+.mobile-nav {
+  display: none;
+}
+@media (max-width: 992px) {
+  .mobile-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    bottom: 0;
+    background-color: #252d3df5;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  .mobile-nav i {
+    cursor: pointer;
+  }
+}
 .go-to-top:hover {
   background-color: #555;
 }
