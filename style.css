@@ -3,32 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-:root {
-  --bs-body-bg: #1a1a1a;
-  --bs-body-color: #fff;
-  --cs-primary: #3d7dc8;
-  --cs-secondary: #7700ec;
-  --cs-info: #2777d5;
-  --cs-success: #4ed0ca;
-  --cs-warning: #e4ac50;
-  --cs-danger: #fd4949;
-  --cs-white: #f4f4f4;
-  --cs-text-white: #383838;
-  --cs-shadow-white: #dddddd;
-  --cs-text-primary: #fff;
-  --cs-text-secondary: #fff;
-  --cs-text-info: #fff;
-  --cs-text-success: #092e2c;
-  --cs-text-warning: #392c15;
-  --cs-text-danger: #4d0808;
-  --cs-primary-half: rgb(61 125 200 / 50%);
-  --cs-secondary-half: rgb(119 0 236 / 50%);
-  --cs-success-half: rgb(78 208 202 / 50%);
-  --cs-info-half: rgb(61 160 248 / 50%);
-  --cs-warning-half: rgb(228 172 80 / 50%);
-  --cs-danger-half: rgb(253 73 73 / 50%);
-  --var-nav-pills-link-color: var(--cs-primary);
-}
 ul {
   list-style: none;
 }
@@ -45,7 +19,6 @@ a {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-
 body {
   background-image: url(https://assets.hyperteknoloji.com/cdn/oyunfast/employee/docbg-dark_133d9af916f3d7ac2b8f67b68aae685c.png);
   font-family: "Open Sans", sans-serif;
@@ -81,7 +54,7 @@ header .header-links a {
   transition: 0.3s;
 }
 header .header-link:hover {
-  color: blue;
+  color: #3d7dc8;
 }
 .header-links li {
   transition: 0.3s;
@@ -95,7 +68,7 @@ header .top-social-media i {
   margin-right: 0.5rem;
 }
 header .header-main {
-  border-top: 1px solid var(--cs-text-white);
+  border-top: 1px solid #383838;
   padding: 1rem 0;
 }
 @media (max-width: 768px) {
@@ -132,7 +105,7 @@ header .search-box input[type="search"]:focus {
   outline: none;
 }
 header .search-box input[type="search"]::placeholder {
-  color: var(--cs-shadow-white);
+  color: #dddddd;
 }
 header .search-box i {
   background-color: #171a21ab;
@@ -142,7 +115,7 @@ header .search-box i {
   transform: translateY(-50%);
 }
 .login-container {
-  color: var(--cs-shadow-white);
+  color: #dddddd;
 }
 @media (max-width: 768px) {
   .login-container {
@@ -226,7 +199,7 @@ header .search-box i {
 }
 .overlay > div div p:last-child {
   font-size: 0.8rem;
-  color: var(--cs-shadow-white);
+  color: #dddddd;
   font-weight: 600;
 }
 @media (max-width: 768px) {
@@ -282,7 +255,7 @@ header .search-box i {
 }
 .products-container .product-image .product-icons button {
   display: block;
-  background-color: var(--cs-primary);
+  background-color: #3d7dc8;
   padding: 0.25rem;
   cursor: pointer;
   width: 100%;
